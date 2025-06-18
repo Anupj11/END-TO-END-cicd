@@ -1,0 +1,17 @@
+# Ansible/playbook.yml
+---
+- name: Deploy Docker container on EC2
+  hosts: all
+  become: yes
+  tasks:
+    - name: Stop existing container
+      shell: docker stop webapp || true
+
+    - name: Remove existing container
+      shell: docker rm webapp || true
+
+    - name: Pull Docker image (optional if image is already built)
+      shell: docker pull devops-static-site || true
+
+    - name: Run Docker container
+      shell: docker run -d -p 80:80 --name webapp devops-static-site
