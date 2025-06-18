@@ -2,7 +2,7 @@ pipeline {
     agent any
 
       environment {
-        IMAGE_NAME = 'anup011/aws-end-to-end-cicd'  // Use your DockerHub username
+        devops-static-site = 'anup011/aws-end-to-end-cicd'  // Use your DockerHub username
     }
 
     stages {
